@@ -1,2 +1,2 @@
-# Pablo-Taining-plan
+# Pablo-Training-plan
 Calendar-Training App
