@@ -12,7 +12,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Syne:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <style>
-:root{--bg:#0a0a0f;--surface:#13131a;--surface2:#1c1c26;--border:rgba(255,255,255,0.07);--border2:rgba(255,255,255,0.13);--text:#f0f0f5;--muted:#7a7a90;--faint:#3a3a50;--gym:#4f8ef7;--gym-dim:#1a2d52;--easy:#3ecf8e;--easy-dim:#0f3324;--tempo:#f59e0b;--tempo-dim:#3b2600;--long:#818cf8;--long-dim:#1e1b4b;--accent:#4f8ef7;--radius:14px;--radius-sm:8px;}
+:root{--bg:#0a0a0f;--surface:#13131a;--surface2:#1c1c26;--border:rgba(255,255,255,0.07);--border2:rgba(255,255,255,0.13);--text:#f0f0f5;--muted:#7a7a90;--faint:#3a3a50;--gym:#4f8ef7;--gym-dim:#1a2d52;--easy:#3ecf8e;--easy-dim:#0f3324;--tempo:#f59e0b;--tempo-dim:#3b2600;--long:#818cf8;--long-dim:#1e1b4b;--hyrox:#fb7185;--hyrox-dim:#3b0f1f;--accent:#4f8ef7;--radius:14px;--radius-sm:8px;}
 *{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent;}
 html,body{height:100%;overflow:hidden;background:var(--bg);color:var(--text);font-family:'Syne',sans-serif;}
 #app{display:flex;flex-direction:column;height:100vh;height:100dvh;}
@@ -160,67 +160,7 @@ html,body{height:100%;overflow:hidden;background:var(--bg);color:var(--text);fon
 
 <script>
 // ── DATA ──────────────────────────────────────────────────────────────────────
-const UPPER_A={name:'Upper A',icon:'💪',type:'gym',meta:'Push + horizontal pull · ~70 min',color:'#4f8ef7',colorDim:'#1a2d52',
-warmup:'Band pull-aparts 2×15 · Arm circles 30s · External rotation band 2×15 each side',
-exercises:[
-  {name:'Incline press (barbell or DB)',sets:'4',reps:'6–8',rest:'2–3 min',note:'Lead compound. 2s descent. 1 rep short of failure.',tag:''},
-  {name:'Machine chest press',sets:'3',reps:'10–12',rest:'90s',note:'Squeeze at top. Controlled return.',tag:''},
-  {name:'ISO lateral row machine',sets:'4',reps:'10',rest:'90s',note:'Drive elbow back. 1s pause at contraction.',tag:''},
-  {name:'Overhead press (dumbbells)',sets:'3',reps:'10',rest:'90s',note:'Core braced. No lower-back arch.',tag:''},
-  {name:'Face pull',sets:'3',reps:'15',rest:'60s',note:'Cable at head height. External rotation at end.',tag:'back'},
-  {name:'Tricep rope pushdown',sets:'3',reps:'12',rest:'60s',note:'Elbows pinned. Full extension at bottom.',tag:''},
-  {name:'External shoulder rotation',sets:'2',reps:'15 ea',rest:'45s',note:'Prehab. Light weight only. Full ROM.',tag:''},
-],sessionNote:'Progression: hit top of rep range for all sets → add 2.5 kg next session on compound lifts.'};
-
-const LOWER_A={name:'Lower A',icon:'🦵',type:'gym',meta:'Quad + core + glutes · ~75 min',color:'#4f8ef7',colorDim:'#1a2d52',
-warmup:'Clamshells 2×15 ea · Banded lateral walks 2×15 · Glute bridges 2×20 · Hip circles 30s ea · Dead bugs 2×10 ea',
-exercises:[
-  {name:'Leg press machine',sets:'4',reps:'10',rest:'2 min',note:'Feet hip-width. Drive through full foot. Don\'t lock knees.',tag:''},
-  {name:'Bulgarian split squat',sets:'3',reps:'8 ea',rest:'2 min',note:'Note weaker side — give it an extra set if asymmetric.',tag:'hip'},
-  {name:'Seated leg curl (machine)',sets:'3',reps:'12',rest:'90s',note:'Full ROM. 2s on the way down. No snap back.',tag:''},
-  {name:'Leg extension (machine)',sets:'3',reps:'12',rest:'90s',note:'1s pause at top. No hyperextension.',tag:''},
-  {name:'Hip abduction machine',sets:'3',reps:'15',rest:'60s',note:'Slow and controlled. Activation > load.',tag:'hip'},
-  {name:'Pallof press',sets:'3',reps:'12 ea',rest:'60s',note:'Anti-rotation core. 2s hold at full extension. Both sides.',tag:'back'},
-  {name:'Calf press machine',sets:'3',reps:'12',rest:'60s',note:'Full stretch at bottom, full rise at top.',tag:''},
-],sessionNote:'If lower back takes over → stop the set, reset, check glute activation.'};
-
-const UPPER_B={name:'Upper B',icon:'🏋️',type:'gym',meta:'Pull + overhead + abs · ~70 min',color:'#4f8ef7',colorDim:'#1a2d52',
-warmup:'Cat-cow 10 reps · Thoracic rotations 10 ea side · Band pull-aparts 2×15 · Dead hangs 2×20s',
-exercises:[
-  {name:'Assisted pull-ups',sets:'4',reps:'6–8',rest:'2–3 min',note:'Full hang at bottom. Chin above bar. Reduce assistance when 4×8 easy.',tag:''},
-  {name:'T-bar row machine',sets:'4',reps:'8',rest:'2 min',note:'Chest on pad. Drive elbows back. Squeeze shoulder blades. 1s hold.',tag:''},
-  {name:'Single arm lateral raise (cable)',sets:'3',reps:'12 ea',rest:'60s',note:'Low pulley. Slight lean. Raise to shoulder height only.',tag:''},
-  {name:'Hammer curl',sets:'3',reps:'10',rest:'60s',note:'Neutral grip. No swinging. Pause at top.',tag:''},
-  {name:'Assisted dips',sets:'3',reps:'10',rest:'90s',note:'Slight forward lean. Full depth — upper arms parallel at bottom.',tag:''},
-  {name:'Cable crunch (abs)',sets:'3',reps:'12',rest:'60s',note:'Kneel. Round spine. Abs pull — not arms.',tag:''},
-  {name:'Side plank',sets:'3',reps:'45s ea',rest:'45s',note:'Straight line head to heels. No hip sag.',tag:'back'},
-],sessionNote:'Leave 1–2 reps in the tank — big day (Lower B + long run) is tomorrow.'};
-
-const LOWER_B={name:'Lower B',icon:'🍑',type:'gym',meta:'Hip-dominant + glutes · ~60 min',color:'#4f8ef7',colorDim:'#1a2d52',
-warmup:'Clamshells 2×15 ea · Banded lateral walks 2×15 · Single-leg glute bridges 2×12 ea · Hip circles 30s ea · Dead bugs 2×10 ea',
-exercises:[
-  {name:'Single-leg RDL (KB or DB)',sets:'3',reps:'10 ea',rest:'90s',note:'Forces each glute to stabilise. Feel in glute — NOT lower back.',tag:'hip'},
-  {name:'Hip thrust (barbell or machine)',sets:'4',reps:'10',rest:'90s',note:'Drive through heels. Squeeze glutes. 1s hold at top.',tag:'hip'},
-  {name:'Sumo squat (kettlebell)',sets:'3',reps:'12',rest:'90s',note:'Wide stance, toes out. Chest up, knees over toes.',tag:''},
-  {name:'Lumbar extension machine',sets:'3',reps:'12',rest:'60s',note:'Controlled. Stop at neutral spine — do not hyperextend.',tag:'back'},
-  {name:'Seated calf raise',sets:'3',reps:'12',rest:'60s',note:'Full stretch at bottom. Slow tempo.',tag:''},
-  {name:'Cable crunch (abs)',sets:'3',reps:'12',rest:'60s',note:'Kneel. Round spine. Abs pull.',tag:''},
-],sessionNote:'Single-leg RDL until you stop feeling it in your lower back. Then progress to bilateral RDL.'};
-
-const FULL_BODY={name:'Full body',icon:'⚙️',type:'gym',meta:'Maintenance · ~60 min',color:'#4f8ef7',colorDim:'#1a2d52',
-warmup:'Band pull-aparts 2×15 · Glute bridges 2×15 · Hip circles 30s each side · Dead bugs 2×10 ea',
-exercises:[
-  {name:'Incline press or machine chest press',sets:'3',reps:'10',rest:'90s',note:'Maintenance weight. Not trying to progress.',tag:''},
-  {name:'ISO lateral row or T-bar row',sets:'3',reps:'10',rest:'90s',note:'Maintain form and weight.',tag:''},
-  {name:'Leg press',sets:'3',reps:'10',rest:'90s',note:'Moderate load. Legs may be tired from running.',tag:''},
-  {name:'Hip thrust',sets:'3',reps:'10',rest:'90s',note:'Always in. Keep glutes firing.',tag:'hip'},
-  {name:'Bulgarian split squat',sets:'2',reps:'8 ea',rest:'90s',note:'Maintenance. Note any asymmetry.',tag:'hip'},
-  {name:'Face pull',sets:'2',reps:'15',rest:'60s',note:'Keep shoulder prehab going.',tag:'back'},
-  {name:'Pallof press',sets:'2',reps:'12 ea',rest:'60s',note:'Low back protection throughout race build.',tag:'back'},
-  {name:'Cable crunch (abs)',sets:'2',reps:'12',rest:'60s',note:'Core stays in throughout all phases.',tag:''},
-],sessionNote:'Hold Phase 1 weights. No new PRs. Running is now the priority.'};
-
-const FULL_BODY_LIGHT={name:'Full body (taper)',icon:'🧘',type:'gym',meta:'Light taper · ~45 min',color:'#4f8ef7',colorDim:'#1a2d52',
+const FULL_BODY_LIGHT={name:'Full body (light)',icon:'🧘',type:'gym',meta:'Light / deload · ~45 min',color:'#4f8ef7',colorDim:'#1a2d52',
 warmup:'Band pull-aparts 2×15 · Glute bridges 2×15 · Hip circles 30s each side',
 exercises:[
   {name:'Machine chest press',sets:'2',reps:'10',rest:'90s',note:'Very light. Feel the muscle, not the weight.',tag:''},
@@ -229,13 +169,9 @@ exercises:[
   {name:'Hip thrust',sets:'2',reps:'10',rest:'90s',note:'Always in. Keep glutes firing.',tag:'hip'},
   {name:'Face pull',sets:'2',reps:'15',rest:'60s',note:'Shoulder health.',tag:'back'},
   {name:'Pallof press',sets:'2',reps:'10 ea',rest:'60s',note:'Core protection.',tag:'back'},
-],sessionNote:'Taper week. Protect legs. No fatigue going into race day.'};
+],sessionNote:'Light week. Protect legs. No fatigue carried into the next hard session.'};
 
 const REST={name:'Rest',icon:'😴',type:'rest',meta:'Full recovery',color:'#3a3a50',colorDim:'#16161f'};
-
-const RACE_DAY={name:'RACE DAY!',icon:'🏅',type:'race',meta:'Half Marathon · 6 September 2026',color:'#f59e0b',colorDim:'#3b2600',
-steps:['Arrive 45–60 min early. 10 min easy walk/jog warm-up.','Km 0–5: start at 6:15–6:20/km. Resist the crowd energy.','Km 5–15: settle into 6:00–6:10/km. Even splits. Do not surge.','Final 6 km: if feeling good → gradually pick up pace.','Gel or energy at km 7 and km 14 if used in training.'],
-keyRule:'Your glutes are firing. Your base is built. Trust the training.'};
 
 function easyRun(km){
   const mins=Math.round(km*8.5);
@@ -258,48 +194,125 @@ function tempoRun(sets,mins){
   hrText:'Warm-up/cool-down: 130–148 bpm · Tempo intervals: 160–172 bpm · Recovery: back below 145 before next interval',
   steps,keyRule:`If 5:30/km too fast → start at 6:00/km. Complete all intervals over blowing up halfway.`};}
 
-function longRun(km){
-  const mins=Math.round(km*8.75);
-  return{name:'Long run',icon:'🛣️',type:'run-long',meta:`Easy · ~${km} km`,color:'#818cf8',colorDim:'#1e1b4b',
-  pace:'Run to HR: 130–148 bpm',effort:'Easy — do NOT race this',duration:`~${mins} min at zone 2`,
-  hrText:'Zone 2 = 130–148 bpm. Your last long run avg was 159 bpm (zone 4). Slow down until HR is in zone. On Ashtead hills → walk the uphills to stay in zone.',
-  steps:['5 min walk warm-up before starting',`Target: ~${km} km at 130–148 bpm throughout`,'Check HR every 10 min — above 150 bpm → slow down','Walk uphills if HR spikes — this is correct zone 2 training','Last 5 min: walk cool-down → stretch hamstrings and calves'],
-  keyRule:`Max +1 km per week. Hamstring rule: if legs feel heavy or tight → shorten rather than push through.`};}
+// ── HYROX STRENGTH (compound + hypertrophy, back/hamstring safe) ──────────────
+const HYROX_STR_A={name:'Strength A — Squat/Push',icon:'🏋️',type:'gym',meta:'Compound + hypertrophy · ~65 min',color:'#4f8ef7',colorDim:'#1a2d52',
+warmup:'Hip circles 30s ea · Glute bridges 2×15 · Band pull-aparts 2×15 · Ankle bounces 20s',
+exercises:[
+  {name:'Trap bar deadlift',sets:'4',reps:'6–8',rest:'2–3 min',note:'Hinge pattern — safer on the lower back than a barbell back squat. Drive through heels.',tag:''},
+  {name:'Goblet squat (heavy DB or KB)',sets:'3',reps:'10',rest:'90s',note:'Depth to comfort — don\'t chase depth over spine position.',tag:''},
+  {name:'Standing DB overhead press',sets:'3',reps:'8–10',rest:'90s',note:'Core braced — no lower-back arch, same cue as the marathon block.',tag:''},
+  {name:'Incline dumbbell press',sets:'3',reps:'10',rest:'90s',note:'Controlled tempo — this is your muscle-building set.',tag:''},
+  {name:'Farmers carry (heavy DB/KB)',sets:'3',reps:'40 m',rest:'90s',note:'Direct Hyrox crossover — grip and core under load, walk tall.',tag:''},
+  {name:'Single-leg RDL',sets:'3',reps:'10 ea',rest:'90s',note:'Glute-dominant, hamstring-safe. Stop if you feel it in the lower back rather than the glute.',tag:'hip'},
+  {name:'Pallof press',sets:'3',reps:'12 ea',rest:'60s',note:'Anti-rotation core — protects the back under sled and carry loads.',tag:'back'},
+],sessionNote:'This is your muscle-building day. Compound lifts, 8–12 rep range, 1–2 reps in reserve.'};
+
+const HYROX_STR_B={name:'Strength B — Pull/Hinge',icon:'💪',type:'gym',meta:'Compound + hypertrophy · ~65 min',color:'#4f8ef7',colorDim:'#1a2d52',
+warmup:'Cat-cow 10 reps · Thoracic rotations 10 ea · Band pull-aparts 2×15 · Glute bridges 2×15',
+exercises:[
+  {name:'Romanian deadlift (DB or barbell)',sets:'4',reps:'8',rest:'2 min',note:'Hamstring-focused — soft knees, hinge from hips, stop at mid-shin.',tag:''},
+  {name:'Chest-supported row',sets:'4',reps:'10',rest:'90s',note:'Removes strain from bent-over rowing — squeeze shoulder blades.',tag:'back'},
+  {name:'Weighted walking lunge or step-up',sets:'3',reps:'8 ea',rest:'90s',note:'Direct carryover to sandbag lunges — control the descent.',tag:''},
+  {name:'Sled push (moderate load, short distance)',sets:'3',reps:'20 m',rest:'2 min',note:'Strength-speed work — drive through full foot, chest over hands.',tag:''},
+  {name:'Assisted pull-up or lat pulldown',sets:'3',reps:'8–10',rest:'90s',note:'Keep progressing this — reduce assistance as it gets easy.',tag:''},
+  {name:'Hip thrust (bodyweight → light load)',sets:'3',reps:'12',rest:'90s',note:'Stay regressed until glutes — not lower back — are clearly doing the work.',tag:'hip'},
+  {name:'Side plank',sets:'3',reps:'40s ea',rest:'45s',note:'Straight line head to heels — no hip sag.',tag:'back'},
+],sessionNote:'Hip thrust is the one where your back tends to compensate — bodyweight or light load until form holds under fatigue.'};
+
+// ── HYROX LIBRARY REFERENCE (from your Amazfit Training Library — exact block lives in-app) ──
+function hyroxLibrary(name,duration,level,category,note){
+  return{name,icon:'🔥',type:'hyrox-lib',meta:`${level} · ${duration} · ${category}`,color:'#fb7185',colorDim:'#3b0f1f',source:'Amazfit Training Library',note};
+}
+const HL_MULTISTATION=hyroxLibrary('High Intensity Multi-Station Overload','25:00','Advanced','HYROX Specific · Hybrid','Short, sharp multi-station stimulus — good for technique work early in the block, or as a light opener when you don\'t want a big fatigue hit before your next run.');
+const HL_HARDCORE_GRIND=hyroxLibrary('40-Minute HYROX Hardcore Grind','40:00','Advanced','HYROX Specific · Functional','Sustained functional grind — pace it like a race. Don\'t blow up on the first two stations.');
+const HL_CARDIO_DUAL=hyroxLibrary('Cardio Dual Machine & Burpees Circuit','40:00','Advanced','HYROX Specific · Cardio','SkiErg/Row engine work paired with burpees — this is where your running engine directly transfers.');
+const HL_OVERALL_PRESSURE=hyroxLibrary('Overall Cardio Pressure Test','50:00','Advanced','HYROX Specific · Hybrid','Full-body pressure test blending all machines and stations — good mid-block fitness check.');
+const HL_DESCENDING_LADDER=hyroxLibrary('Descending Ladder Intensity Training','50:00','Advanced','HYROX Specific · Hybrid','Ladder format keeps intensity climbing as reps drop — strong session for repeated-effort capacity.');
+const HL_ENGINE_DRAIN=hyroxLibrary('60-Minute Engine Drain 500m AMRAP','60:00','Advanced','HYROX Specific · Hybrid','AMRAP format for pure engine capacity — pace conservatively in the first 20 min.');
+const HL_STATION_GRAND=hyroxLibrary('60-Minute Functional Station Grand Circuit','60:00','Advanced','HYROX Specific · Hybrid','Full rotation through every station type — technique and capacity combined.');
+const HL_COMPROMISED_PACE=hyroxLibrary('Compromised Pace Engine Intervals','36:00','Advanced','HYROX Specific · Hybrid','Running intervals right after short bursts of load — the exact skill Hyrox needs: holding pace when your legs are compromised.');
+
+// ── HYROX SESSIONS WITH KNOWN BLOCK STRUCTURE (from your library screenshots) ──
+const BENCHMARK_TEST={name:'Hyrox Benchmark Testing',icon:'📊',type:'hyrox',meta:'Baseline test · ~60 min',color:'#fb7185',colorDim:'#3b0f1f',source:'Coach-designed test — not from Amazfit library',
+desc:'Establishes your starting numbers so we can program real loads and paces from here. Full rest between each test — this is data collection, not a workout.',
+timeLimit:'~60 min with full rest',
+items:[
+  {name:'1 km Time Trial (run)',amount:'Time'},
+  {name:'SkiErg',amount:'500 m — time'},
+  {name:'Row',amount:'500 m — time'},
+  {name:'Sled Push, moderate load',amount:'25 m — time'},
+  {name:'Sled Pull, moderate load',amount:'25 m — time'},
+  {name:'Wall Balls',amount:'Max reps in 2 min'},
+  {name:'Farmers Carry, moderate DB/KB',amount:'40 m — time'},
+  {name:'Burpee Broad Jumps',amount:'20 m — time'},
+  {name:'Sandbag Lunges',amount:'50 m — time'},
+],keyRule:'Log every number — times, loads, reps. These become your Week 6 and Week 10 comparison points.'};
+
+const FULL_STATIONS_HALF_SIM={name:'HYROX Full Stations + Half Run Simulation',icon:'🔀',type:'hyrox',meta:'Functional · Advanced · 70:00',color:'#fb7185',colorDim:'#3b0f1f',source:'Amazfit Training Library',
+desc:'Full station volume + 50% run distance (500m). Focuses on station movement quality and local muscular endurance.',
+timeLimit:'01:10:00',partial:true,
+items:[
+  {name:'Running',amount:'500 m'},{name:'SkiErg',amount:'1.00 km'},{name:'Running',amount:'500 m'},{name:'Sled Push',amount:'50 m'},
+],keyRule:'Good stepping stone before the full simulation — same station volume, half the running fatigue.'};
+
+const ULTIMATE_BALANCED_SIM={name:'Ultimate Balanced Pressure-Resistance Simulation',icon:'⚖️',type:'hyrox',meta:'Hybrid · Advanced · 75:00',color:'#fb7185',colorDim:'#3b0f1f',source:'Amazfit Training Library',
+desc:'Balanced upper/lower interference. Sled Push to Row, Pull to Burpees, finishing with 100 Wall Balls for realistic pressure.',
+timeLimit:'01:15:00',
+items:[
+  {name:'Running',amount:'1.00 km'},{name:'SkiErg',amount:'1.00 km'},{name:'Sled Push',amount:'50 m'},{name:'Running',amount:'1.00 km'},
+  {name:'Rowing',amount:'1.00 km'},{name:'Sandbag Lunges',amount:'100 m'},{name:'Running',amount:'1.00 km'},{name:'Sled Pull',amount:'50 m'},
+  {name:'Burpee Broad Jumps',amount:'80 m'},{name:'Wall Balls',amount:'100 reps'},
+],keyRule:'No farmers carry in this one, so it isolates everything else. The wall ball finisher is where fatigue meets your back — drop to a lighter ball if form slips.'};
+
+const FULL_COURSE_SIM={name:'HYROX Full Course Simulation',icon:'🏁',type:'hyrox',meta:'Hybrid · Advanced · 90:00',color:'#fb7185',colorDim:'#3b0f1f',source:'Amazfit Training Library',
+desc:'Full HYROX simulation (8×1km runs + 8 stations). Tests pacing and transition efficiency for late-stage prep.',
+timeLimit:'01:30:00',
+items:[
+  {name:'Running',amount:'1.00 km'},{name:'SkiErg',amount:'1.00 km'},{name:'Running',amount:'1.00 km'},{name:'Sled Push',amount:'50 m'},
+  {name:'Running',amount:'1.00 km'},{name:'Sled Pull',amount:'50 m'},{name:'Running',amount:'1.00 km'},{name:'Burpee Broad Jumps',amount:'80 m'},
+  {name:'Running',amount:'1.00 km'},{name:'Rowing',amount:'1.00 km'},{name:'Running',amount:'1.00 km'},{name:'Farmers Carry',amount:'200 m'},
+  {name:'Running',amount:'1.00 km'},{name:'Sandbag Lunges',amount:'100 m'},{name:'Running',amount:'1.00 km'},{name:'Wall Balls',amount:'100 reps'},
+],keyRule:'This is your one true dress rehearsal — race pace, race nutrition, race shoes. Use it ~3+ weeks out, not closer, so you can recover and taper properly.'};
+
+const HYROX_RACE_DAY={name:'HYROX RACE DAY!',icon:'🏅',type:'race',meta:'Hyrox · 3 December 2026',color:'#f59e0b',colorDim:'#3b2600',
+steps:['Arrive 60–75 min early. Full dynamic warm-up: leg swings, hip circles, 10 min easy jog, strides.','Run 1 (1km): controlled — do not chase start-line adrenaline. This sets your ceiling for the whole race.','Station pacing: steady effort you could sustain for 8 rounds, not a sprint. Roxzone transitions — walk in, get straight to work.','Sled push/pull: short, controlled steps, low stable back position. This is where fatigue meets your back — stay disciplined.','Wall balls (final station): break into manageable sets early rather than going unbroken and blowing up.','Fuel: gel or carb source around the halfway point if that\'s what you trained with.'],
+keyRule:'You\'ve built the engine and the stations. Race the plan, not the person next to you.'};
 
 // ── WEEKS ─────────────────────────────────────────────────────────────────────
 const WEEKS=[
-  {label:'14–18 Apr',month:'April 2026',phase:'p1',startDate:new Date(2026,3,14),days:[UPPER_A,easyRun(5),LOWER_A,tempoRun(3,8),UPPER_B,{gym:LOWER_B,run:longRun(10)},REST]},
-  {label:'21–25 Apr',month:'April 2026',phase:'p1',startDate:new Date(2026,3,21),days:[UPPER_A,easyRun(5),LOWER_A,tempoRun(3,8),UPPER_B,{gym:LOWER_B,run:longRun(11)},REST]},
-  {label:'28 Apr–2 May',month:'April 2026',phase:'p1',startDate:new Date(2026,3,28),days:[UPPER_A,easyRun(6),LOWER_A,tempoRun(3,8),UPPER_B,{gym:LOWER_B,run:longRun(11)},REST]},
-  {label:'4–8 May',month:'May 2026',phase:'p1',startDate:new Date(2026,4,4),days:[UPPER_A,easyRun(6),LOWER_A,tempoRun(3,8),UPPER_B,{gym:LOWER_B,run:longRun(12)},REST]},
-  {label:'11–15 May',month:'May 2026',phase:'p1',startDate:new Date(2026,4,11),days:[UPPER_A,easyRun(6),LOWER_A,tempoRun(3,10),UPPER_B,{gym:LOWER_B,run:longRun(12)},REST]},
-  {label:'18–22 May',month:'May 2026',phase:'p1',startDate:new Date(2026,4,18),days:[UPPER_A,easyRun(6),LOWER_A,tempoRun(3,10),UPPER_B,{gym:LOWER_B,run:longRun(13)},REST]},
-  {label:'25–29 May',month:'May 2026',phase:'p1',startDate:new Date(2026,4,25),days:[UPPER_A,easyRun(7),LOWER_A,tempoRun(3,10),UPPER_B,{gym:LOWER_B,run:longRun(13)},REST]},
-  {label:'1–5 Jun',month:'June 2026',phase:'p2',startDate:new Date(2026,5,1),days:[FULL_BODY,easyRun(6),FULL_BODY,tempoRun(3,10),REST,longRun(14),REST]},
-  {label:'8–12 Jun',month:'June 2026',phase:'p2',startDate:new Date(2026,5,8),days:[FULL_BODY,easyRun(6),FULL_BODY,tempoRun(4,10),REST,longRun(14),REST]},
-  {label:'15–19 Jun',month:'June 2026',phase:'p2',startDate:new Date(2026,5,15),days:[FULL_BODY,easyRun(7),FULL_BODY,tempoRun(4,10),REST,longRun(15),REST]},
-  {label:'22–26 Jun',month:'June 2026',phase:'p2',startDate:new Date(2026,5,22),days:[FULL_BODY,easyRun(7),FULL_BODY,tempoRun(4,10),REST,longRun(15),REST]},
-  {label:'1–3 Jul',month:'July 2026',phase:'p2',startDate:new Date(2026,6,1),days:[FULL_BODY,easyRun(7),FULL_BODY,tempoRun(4,10),REST,longRun(15),REST]},
-  {label:'6–10 Jul',month:'July 2026',phase:'p2',startDate:new Date(2026,6,6),days:[FULL_BODY,easyRun(7),FULL_BODY,tempoRun(4,12),REST,longRun(16),REST]},
-  {label:'13–17 Jul',month:'July 2026',phase:'p2',startDate:new Date(2026,6,13),days:[FULL_BODY,easyRun(8),FULL_BODY,tempoRun(4,12),REST,longRun(16),REST]},
-  {label:'20–24 Jul',month:'July 2026',phase:'p2',startDate:new Date(2026,6,20),days:[FULL_BODY,easyRun(8),FULL_BODY,tempoRun(4,12),REST,longRun(17),REST]},
-  {label:'27–31 Jul',month:'July 2026',phase:'p2',startDate:new Date(2026,6,27),days:[FULL_BODY,easyRun(8),FULL_BODY,tempoRun(4,12),REST,longRun(17),REST]},
-  {label:'3–7 Aug',month:'August 2026',phase:'p3',startDate:new Date(2026,7,3),days:[FULL_BODY,easyRun(7),REST,FULL_BODY,REST,longRun(17),REST]},
-  {label:'10–14 Aug',month:'August 2026',phase:'p3',startDate:new Date(2026,7,10),days:[FULL_BODY,easyRun(7),REST,FULL_BODY,REST,longRun(17),REST]},
-  {label:'17–21 Aug',month:'August 2026',phase:'p3',startDate:new Date(2026,7,17),days:[FULL_BODY,easyRun(8),REST,FULL_BODY,REST,longRun(18),REST]},
-  {label:'24–28 Aug',month:'August 2026',phase:'p3',startDate:new Date(2026,7,24),days:[FULL_BODY,easyRun(7),REST,FULL_BODY,REST,longRun(18),REST]},
-  {label:'1–5 Sep',month:'September 2026',phase:'p3',startDate:new Date(2026,8,1),days:[FULL_BODY,easyRun(5),REST,FULL_BODY,REST,easyRun(5),REST]},
-  {label:'6 Sep — RACE',month:'September 2026',phase:'p3',startDate:new Date(2026,8,6),days:[FULL_BODY_LIGHT,easyRun(4),REST,easyRun(3),REST,RACE_DAY,REST]},
-  {label:'14–18 Sep',month:'September 2026',phase:'p3',startDate:new Date(2026,8,14),days:[REST,easyRun(4),REST,easyRun(4),REST,easyRun(5),REST]},
+  // ── RECOVERY — half marathon was 6 Sep, body needs to absorb it first ──
+  {label:'7–13 Sep',month:'September 2026',phase:'rec',startDate:new Date(2026,8,7),days:[REST,REST,REST,easyRun(5),REST,REST,REST]},
+
+  // ── TESTING — reintroduce training, establish Hyrox baselines ──
+  {label:'14–20 Sep',month:'September 2026',phase:'test',startDate:new Date(2026,8,14),days:[HYROX_STR_A,easyRun(5),BENCHMARK_TEST,easyRun(5),REST,easyRun(6),REST]},
+
+  // ── HYROX BUILD — 2 Hyrox sessions/week from here on, no long runs ──
+  {label:'21–27 Sep',month:'September 2026',phase:'build',startDate:new Date(2026,8,21),days:[HYROX_STR_B,tempoRun(3,8),HL_MULTISTATION,easyRun(7),REST,HL_HARDCORE_GRIND,REST]},
+  {label:'28 Sep–4 Oct',month:'September 2026',phase:'build',startDate:new Date(2026,8,28),days:[HYROX_STR_A,tempoRun(4,8),HL_CARDIO_DUAL,easyRun(8),REST,HL_COMPROMISED_PACE,REST]},
+  {label:'5–11 Oct',month:'October 2026',phase:'build',startDate:new Date(2026,9,5),days:[HYROX_STR_B,tempoRun(4,10),HL_OVERALL_PRESSURE,easyRun(8),REST,HL_DESCENDING_LADDER,REST]},
+  {label:'12–18 Oct',month:'October 2026',phase:'build',startDate:new Date(2026,9,12),days:[HYROX_STR_A,tempoRun(4,10),HL_STATION_GRAND,easyRun(9),REST,HL_ENGINE_DRAIN,REST]},
+  {label:'19–25 Oct',month:'October 2026',phase:'build',startDate:new Date(2026,9,19),days:[HYROX_STR_B,HL_COMPROMISED_PACE,HL_HARDCORE_GRIND,easyRun(9),REST,FULL_STATIONS_HALF_SIM,REST]},
+  {label:'26 Oct–1 Nov',month:'October 2026',phase:'build',startDate:new Date(2026,9,26),days:[HYROX_STR_A,tempoRun(4,12),HL_CARDIO_DUAL,easyRun(10),REST,HL_OVERALL_PRESSURE,REST]},
+  {label:'2–8 Nov',month:'November 2026',phase:'build',startDate:new Date(2026,10,2),days:[HYROX_STR_B,tempoRun(3,10),HL_MULTISTATION,easyRun(8),REST,ULTIMATE_BALANCED_SIM,REST]},
+
+  // ── RACE SIMULATION — full dress rehearsal ~3 weeks out ──
+  {label:'9–15 Nov',month:'November 2026',phase:'sim',startDate:new Date(2026,10,9),days:[HYROX_STR_A,tempoRun(3,8),HL_MULTISTATION,easyRun(6),REST,FULL_COURSE_SIM,REST]},
+  {label:'16–22 Nov',month:'November 2026',phase:'sim',startDate:new Date(2026,10,16),days:[FULL_BODY_LIGHT,easyRun(6),HL_CARDIO_DUAL,REST,REST,FULL_STATIONS_HALF_SIM,REST]},
+
+  // ── TAPER + RACE ──
+  {label:'23–29 Nov',month:'November 2026',phase:'taper',startDate:new Date(2026,10,23),days:[FULL_BODY_LIGHT,easyRun(5),HL_MULTISTATION,REST,REST,easyRun(5),REST]},
+  {label:'30 Nov — RACE',month:'December 2026',phase:'taper',startDate:new Date(2026,10,30),days:[FULL_BODY_LIGHT,easyRun(4),REST,HYROX_RACE_DAY,REST,REST,REST]},
 ];
 
 const PHASES=[
-  {id:'p1',name:'Phase 1 — Build base',note:'3 gym + 3 runs. Push gym progression. Run to HR zone, not pace.',color:'#4f8ef7'},
-  {id:'p2',name:'Phase 2 — Running priority',note:'2 gym (maintenance) + 3 runs. Long run peaks at 17 km. Stop progressing gym weights.',color:'#3ecf8e'},
-  {id:'p3',name:'Phase 3 — Race prep + taper',note:'2 gym + 3 runs. Long run 17–18 km. Race day: 6 September 2026.',color:'#f59e0b'},
+  {id:'rec',name:'Recovery — post half marathon',note:'Full rest except one easy shakeout run. Let the half marathon fully absorb before loading anything new.',color:'#3a3a50'},
+  {id:'test',name:'Testing week',note:'Baseline benchmarks for pace, stations and strength before we program real loads.',color:'#818cf8'},
+  {id:'build',name:'Hyrox build',note:'2 Hyrox sessions + 1 tempo run + 1 moderate run + 1 strength day. Hyrox specificity over long-run volume.',color:'#fb7185'},
+  {id:'sim',name:'Race simulation',note:'Full and partial race simulations. Dress rehearsal week of 9 Nov, ~3 weeks out.',color:'#f59e0b'},
+  {id:'taper',name:'Taper + race',note:'Volume down, intensity stays sharp. Race day: 3 December 2026.',color:'#f59e0b'},
 ];
 const DAYS=['Mon','Tue','Wed','Thu','Fri','Sat','Sun'];
-const RACE_DATE=new Date(2026,8,6);
+const RACE_DATE=new Date(2026,11,3);
 
 // ── STATE ─────────────────────────────────────────────────────────────────────
 let currentTab='today';
@@ -310,8 +323,8 @@ let selDayIdx=0;
 // ── HELPERS ───────────────────────────────────────────────────────────────────
 function getPhase(id){return PHASES.find(p=>p.id===id);}
 function getTodayDayIdx(){const d=new Date().getDay();return d===0?6:d-1;}
-function dayColor(s){if(!s)return'#3a3a50';if(s.gym)return'#4f8ef7';const t=s.type;if(t==='gym')return'#4f8ef7';if(t==='run-easy')return'#3ecf8e';if(t==='run-tempo')return'#f59e0b';if(t==='run-long')return'#818cf8';if(t==='race')return'#f59e0b';return'#3a3a50';}
-function dayLabel(s){if(!s)return'REST';if(s.gym)return'GYM+RUN';const t=s.type;if(t==='gym')return s.name.replace(' ','·');if(t==='run-easy')return'EASY';if(t==='run-tempo')return'TEMPO';if(t==='run-long')return'LONG';if(t==='race')return'RACE!';return'REST';}
+function dayColor(s){if(!s)return'#3a3a50';if(s.gym)return'#4f8ef7';const t=s.type;if(t==='gym')return'#4f8ef7';if(t==='run-easy')return'#3ecf8e';if(t==='run-tempo')return'#f59e0b';if(t==='run-long')return'#818cf8';if(t==='race')return'#f59e0b';if(t==='hyrox'||t==='hyrox-lib')return'#fb7185';return'#3a3a50';}
+function dayLabel(s){if(!s)return'REST';if(s.gym)return'GYM+RUN';const t=s.type;if(t==='gym')return s.name.replace(' ','·');if(t==='run-easy')return'EASY';if(t==='run-tempo')return'TEMPO';if(t==='run-long')return'LONG';if(t==='race')return'RACE!';if(t==='hyrox'||t==='hyrox-lib')return'HYROX';return'REST';}
 function shortDayLabel(s){const l=dayLabel(s);return l.substring(0,3);}
 
 function getCurrentWeekIdx(){
@@ -356,11 +369,28 @@ function raceCard(s){
   return`<div class="sc" style="border-color:#f59e0b;background:rgba(245,158,11,0.05)"><div class="sc-top"><div class="sc-icon" style="background:#3b2600;font-size:24px">🏅</div><div><div class="sc-title" style="color:#f59e0b">${s.name}</div><div class="sc-meta">${s.meta}</div></div></div><div class="run-struct"><div class="rst-title" style="color:#f59e0b">Race strategy</div>${steps}</div><div class="key-rule" style="border-color:#f59e0b;color:#fde68a;background:rgba(245,158,11,0.1)">${s.keyRule}</div></div>`;
 }
 
+function hyroxCard(s){
+  const items=s.items.map(it=>`<div class="ex-row"><div class="ex-name">${it.name}</div><div class="ex-sets"><div class="ex-sets-main">${it.amount}</div></div></div>`).join('');
+  const cont=s.partial?`<div style="font-size:11px;color:var(--muted);padding:8px 0 0;line-height:1.5">…continues through the remaining stations — open the full session in your Amazfit app for the exact order.</div>`:'';
+  return`<div class="sc"><div class="sc-top"><div class="sc-icon" style="background:${s.colorDim}">${s.icon}</div><div><div class="sc-title">${s.name}</div><div class="sc-meta">${s.meta}</div><span class="sc-badge" style="background:${s.colorDim};color:${s.color}">${s.source}</span></div></div>
+  <div class="note-box" style="margin-top:0">${s.desc}</div>
+  <div class="run-struct"><div class="rst-title">For time${s.timeLimit?' · '+s.timeLimit:''}</div>${items}${cont}</div>
+  ${s.keyRule?`<div class="key-rule">${s.keyRule}</div>`:''}</div>`;
+}
+
+function hyroxLibCard(s){
+  return`<div class="sc"><div class="sc-top"><div class="sc-icon" style="background:${s.colorDim}">${s.icon}</div><div><div class="sc-title">${s.name}</div><div class="sc-meta">${s.meta}</div><span class="sc-badge" style="background:${s.colorDim};color:${s.color}">${s.source}</span></div></div>
+  <div class="wu-box" style="background:rgba(245,158,11,0.08);border:0.5px solid rgba(245,158,11,0.2)"><div class="wu-title" style="color:#f59e0b">📲 Open in Amazfit app</div><div class="wu-text" style="color:#fde68a">Find "${s.name}" in Training Library → Zepp Training and follow the app's block prescription.</div></div>
+  <div class="note-box">${s.note}</div></div>`;
+}
+
 function sessionCard(s){
   if(!s)return restCard();
   if(s.gym)return gymCard(s.gym)+'<div style="margin-top:10px"></div>'+runCard(s.run);
   if(s.type==='gym')return gymCard(s);
   if(s.type==='run-easy'||s.type==='run-tempo'||s.type==='run-long')return runCard(s);
+  if(s.type==='hyrox')return hyroxCard(s);
+  if(s.type==='hyrox-lib')return hyroxLibCard(s);
   if(s.type==='race')return raceCard(s);
   return restCard();
 }
