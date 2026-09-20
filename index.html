@@ -219,6 +219,42 @@ exercises:[
   {name:'Side plank',sets:'3',reps:'40s ea',rest:'45s',note:'Straight line head to heels — no hip sag.',tag:'back'},
 ],sessionNote:'Hip thrust is the one where your back tends to compensate — bodyweight or light load until form holds under fatigue.'};
 
+// ── NEW WEEKLY SPLIT (from 21 Sep) — Lower A + Upper A/B + 2 Hyrox + tempo + club run ──
+const LOWER_BODY_A={name:'Lower Body A',icon:'🦵',type:'gym',meta:'Lower · ~60 min',color:'#4f8ef7',colorDim:'#1a2d52',
+warmup:'Clamshells 2×15 ea · Banded lateral walks 2×15 ea · Glute bridges 2×20 · Hip circles 30s ea · Dead bugs 2×10 ea',
+exercises:[
+  {name:'Leg press machine',sets:'4',reps:'10-12',rest:'2 min',note:"Feet hip-width, don't lock knees.",tag:''},
+  {name:'Bulgarian split squat (dumbbells)',sets:'3',reps:'10-12',rest:'2 min',note:'Note weaker side — extra set if clearly asymmetric.',tag:'hip'},
+  {name:'Seated leg curl',sets:'3',reps:'10-12',rest:'90s',note:'Full ROM, 2s on the way down. Hamstring work without loading the back.',tag:''},
+  {name:'Hip thrust',sets:'3',reps:'8-10',rest:'90s',note:'Drive through heels. Regress to bodyweight glute bridge if lower back takes over.',tag:'hip'},
+  {name:'Hip abduction machine',sets:'3',reps:'12-15',rest:'60s',note:'Glute medius focus — activation over load.',tag:'hip'},
+  {name:'Calf press machine',sets:'3',reps:'12',rest:'60s',note:'Full stretch at bottom.',tag:''},
+  {name:'Pallof press',sets:'3',reps:'12 ea',rest:'60s',note:'Anti-rotation core. Non-negotiable.',tag:'back'},
+],sessionNote:'Sits 3 days before Thursday tempo and the day after Sunday Hyrox Light — keep 1-2 reps in reserve if Sunday was demanding.'};
+
+const UPPER_BODY_A={name:'Upper Body A',icon:'💪',type:'gym',meta:'Push · ~70 min',color:'#4f8ef7',colorDim:'#1a2d52',
+warmup:'Band pull-aparts 2×15 · Arm circles 30s · External rotation band 2×15 ea',
+exercises:[
+  {name:'Incline dumbbell press',sets:'4',reps:'5-12',rest:'2-3 min',note:'Pyramid — increase weight, drop reps each set. Lead compound lift.',tag:''},
+  {name:'Machine chest press',sets:'4-5',reps:'5-12',rest:'90s',note:'Finish with a lighter drop set to failure.',tag:''},
+  {name:'ISO-lateral low row machine',sets:'4',reps:'8',rest:'90s',note:'Drive elbow back, 1s pause at contraction.',tag:''},
+  {name:'Overhead press dumbbells',sets:'3',reps:'8-12',rest:'90s',note:'Core braced, no lower-back arch.',tag:''},
+  {name:'Face pull',sets:'3',reps:'15',rest:'60s',note:'Cable at head height, external rotation at end.',tag:'back'},
+  {name:'Triceps rope pushdown',sets:'3',reps:'4-14',rest:'60s',note:'Pyramid, heavier each set.',tag:''},
+  {name:'External shoulder rotation',sets:'3',reps:'10',rest:'45s',note:'Prehab, light weight only.',tag:''},
+],sessionNote:'Legs get a full day off before this one and before tempo tomorrow.'};
+
+const UPPER_BODY_B={name:'Upper Body B',icon:'🏋️',type:'gym',meta:'Pull · ~60 min',color:'#4f8ef7',colorDim:'#1a2d52',
+warmup:'Cat-cow 10 reps · Thoracic rotations 10 ea · Band pull-aparts 2×15 · Dead hangs 2×20s',
+exercises:[
+  {name:'Assisted pull-ups',sets:'4',reps:'5-8',rest:'2-3 min',note:'Full hang, chin above bar. Reduce assistance when 4×8 feels easy.',tag:''},
+  {name:'T-bar row machine',sets:'4',reps:'8',rest:'2 min',note:'Chest on pad, squeeze shoulder blades, 1s hold.',tag:''},
+  {name:'Single arm lateral raise (cable)',sets:'3',reps:'12 ea',rest:'60s',note:'Low pulley, raise to shoulder height only.',tag:''},
+  {name:'Hammer curl',sets:'3',reps:'10',rest:'60s',note:'Neutral grip, no swinging.',tag:''},
+  {name:'Cable crunch abs',sets:'3',reps:'12',rest:'60s',note:'Kneel, round spine, abs pull not arms.',tag:''},
+  {name:'Side plank',sets:'3',reps:'45s ea',rest:'45s',note:'Straight line, no hip sag.',tag:'back'},
+],sessionNote:'Comes right after tempo — leave 1-2 reps in the tank on everything.'};
+
 // ── HYROX LIBRARY REFERENCE (from your Amazfit Training Library — exact block lives in-app) ──
 function hyroxLibrary(name,duration,level,category,note){
   return{name,icon:'🔥',type:'hyrox-lib',meta:`${level} · ${duration} · ${category}`,color:'#fb7185',colorDim:'#3b0f1f',source:'Amazfit Training Library',note};
@@ -231,6 +267,8 @@ const HL_DESCENDING_LADDER=hyroxLibrary('Descending Ladder Intensity Training','
 const HL_ENGINE_DRAIN=hyroxLibrary('60-Minute Engine Drain 500m AMRAP','60:00','Advanced','HYROX Specific · Hybrid','AMRAP format for pure engine capacity — pace conservatively in the first 20 min.');
 const HL_STATION_GRAND=hyroxLibrary('60-Minute Functional Station Grand Circuit','60:00','Advanced','HYROX Specific · Hybrid','Full rotation through every station type — technique and capacity combined.');
 const HL_COMPROMISED_PACE=hyroxLibrary('Compromised Pace Engine Intervals','36:00','Advanced','HYROX Specific · Hybrid','Running intervals right after short bursts of load — the exact skill Hyrox needs: holding pace when your legs are compromised.');
+const HYROX_TRAINING=hyroxLibrary('Hyrox Training','40:00','Moderate','Amazfit Training Library','Pick a machine/engine-focused session (SkiErg, row, wall balls, burpees, carries) rather than a sled- or lunge-heavy one — legs need to stay fresh for the rest of the week.');
+const HYROX_LIGHT=hyroxLibrary('Hyrox Light','25:00','Light','Amazfit Training Library','Kept deliberately light — short multi-station stimulus, not a hard effort. Legs need to recover into Monday\'s Lower Body A.');
 
 // ── HYROX SESSIONS WITH KNOWN BLOCK STRUCTURE (from your library screenshots) ──
 const BENCHMARK_TEST={name:'Hyrox Benchmark Testing',icon:'📊',type:'hyrox',meta:'Baseline test · ~60 min',color:'#fb7185',colorDim:'#3b0f1f',source:'Coach-designed test — not from Amazfit library',
@@ -287,16 +325,16 @@ const WEEKS=[
   {label:'14–20 Sep',month:'September 2026',phase:'test',startDate:new Date(2026,8,14),days:[HYROX_STR_A,easyRun(5),BENCHMARK_TEST,easyRun(5),REST,easyRun(6),REST]},
 
   // ── HYROX BUILD — 2 Hyrox sessions/week from here on, no long runs ──
-  {label:'21–27 Sep',month:'September 2026',phase:'build',startDate:new Date(2026,8,21),days:[HYROX_STR_B,tempoRun(3,8),HL_MULTISTATION,easyRun(7),REST,HL_HARDCORE_GRIND,REST]},
-  {label:'28 Sep–4 Oct',month:'September 2026',phase:'build',startDate:new Date(2026,8,28),days:[HYROX_STR_A,tempoRun(4,8),HL_CARDIO_DUAL,easyRun(8),REST,HL_COMPROMISED_PACE,REST]},
-  {label:'5–11 Oct',month:'October 2026',phase:'build',startDate:new Date(2026,9,5),days:[HYROX_STR_B,tempoRun(4,10),HL_OVERALL_PRESSURE,easyRun(8),REST,HL_DESCENDING_LADDER,REST]},
-  {label:'12–18 Oct',month:'October 2026',phase:'build',startDate:new Date(2026,9,12),days:[HYROX_STR_A,tempoRun(4,10),HL_STATION_GRAND,easyRun(9),REST,HL_ENGINE_DRAIN,REST]},
-  {label:'19–25 Oct',month:'October 2026',phase:'build',startDate:new Date(2026,9,19),days:[HYROX_STR_B,HL_COMPROMISED_PACE,HL_HARDCORE_GRIND,easyRun(9),REST,FULL_STATIONS_HALF_SIM,REST]},
-  {label:'26 Oct–1 Nov',month:'October 2026',phase:'build',startDate:new Date(2026,9,26),days:[HYROX_STR_A,tempoRun(4,12),HL_CARDIO_DUAL,easyRun(10),REST,HL_OVERALL_PRESSURE,REST]},
-  {label:'2–8 Nov',month:'November 2026',phase:'build',startDate:new Date(2026,10,2),days:[HYROX_STR_B,tempoRun(3,10),HL_MULTISTATION,easyRun(8),REST,ULTIMATE_BALANCED_SIM,REST]},
+  {label:'21–27 Sep',month:'September 2026',phase:'build',startDate:new Date(2026,8,21),days:[LOWER_BODY_A,HYROX_TRAINING,UPPER_BODY_A,tempoRun(3,8),UPPER_BODY_B,easyRun(5),HYROX_LIGHT]},
+  {label:'28 Sep–4 Oct',month:'September 2026',phase:'build',startDate:new Date(2026,8,28),days:[LOWER_BODY_A,HYROX_TRAINING,UPPER_BODY_A,tempoRun(4,8),UPPER_BODY_B,easyRun(5),HYROX_LIGHT]},
+  {label:'5–11 Oct',month:'October 2026',phase:'build',startDate:new Date(2026,9,5),days:[LOWER_BODY_A,HYROX_TRAINING,UPPER_BODY_A,tempoRun(4,10),UPPER_BODY_B,easyRun(5),HYROX_LIGHT]},
+  {label:'12–18 Oct',month:'October 2026',phase:'build',startDate:new Date(2026,9,12),days:[LOWER_BODY_A,HYROX_TRAINING,UPPER_BODY_A,tempoRun(4,10),UPPER_BODY_B,easyRun(5),HYROX_LIGHT]},
+  {label:'19–25 Oct',month:'October 2026',phase:'build',startDate:new Date(2026,9,19),days:[LOWER_BODY_A,HYROX_TRAINING,UPPER_BODY_A,tempoRun(4,12),UPPER_BODY_B,easyRun(5),HYROX_LIGHT]},
+  {label:'26 Oct–1 Nov',month:'October 2026',phase:'build',startDate:new Date(2026,9,26),days:[LOWER_BODY_A,HYROX_TRAINING,UPPER_BODY_A,tempoRun(4,12),UPPER_BODY_B,easyRun(5),HYROX_LIGHT]},
+  {label:'2–8 Nov',month:'November 2026',phase:'build',startDate:new Date(2026,10,2),days:[LOWER_BODY_A,HYROX_TRAINING,UPPER_BODY_A,tempoRun(4,12),UPPER_BODY_B,easyRun(5),HYROX_LIGHT]},
 
   // ── RACE SIMULATION — full dress rehearsal ~3 weeks out ──
-  {label:'9–15 Nov',month:'November 2026',phase:'sim',startDate:new Date(2026,10,9),days:[HYROX_STR_A,tempoRun(3,8),HL_MULTISTATION,easyRun(6),REST,FULL_COURSE_SIM,REST]},
+  {label:'9–15 Nov',month:'November 2026',phase:'sim',startDate:new Date(2026,10,9),days:[LOWER_BODY_A,HYROX_TRAINING,UPPER_BODY_A,tempoRun(3,8),UPPER_BODY_B,FULL_COURSE_SIM,REST]},
   {label:'16–22 Nov',month:'November 2026',phase:'sim',startDate:new Date(2026,10,16),days:[FULL_BODY_LIGHT,easyRun(6),HL_CARDIO_DUAL,REST,REST,FULL_STATIONS_HALF_SIM,REST]},
 
   // ── TAPER + RACE ──
@@ -307,7 +345,7 @@ const WEEKS=[
 const PHASES=[
   {id:'rec',name:'Recovery — post half marathon',note:'Full rest except one easy shakeout run. Let the half marathon fully absorb before loading anything new.',color:'#3a3a50'},
   {id:'test',name:'Testing week',note:'Baseline benchmarks for pace, stations and strength before we program real loads.',color:'#818cf8'},
-  {id:'build',name:'Hyrox build',note:'2 Hyrox sessions + 1 tempo run + 1 moderate run + 1 strength day. Hyrox specificity over long-run volume.',color:'#fb7185'},
+  {id:'build',name:'Hyrox build',note:'2 light Hyrox sessions + 3 gym days (Lower A, Upper A, Upper B) + 1 tempo run + 5k club run. No full rest day — watch recovery, especially Sunday-to-Monday.',color:'#fb7185'},
   {id:'sim',name:'Race simulation',note:'Full and partial race simulations. Dress rehearsal week of 9 Nov, ~3 weeks out.',color:'#f59e0b'},
   {id:'taper',name:'Taper + race',note:'Volume down, intensity stays sharp. Race day: 3 December 2026.',color:'#f59e0b'},
 ];
