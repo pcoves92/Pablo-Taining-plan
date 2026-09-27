@@ -255,6 +255,77 @@ exercises:[
   {name:'Side plank',sets:'3',reps:'45s ea',rest:'45s',note:'Straight line, no hip sag.',tag:'back'},
 ],sessionNote:'Comes right after tempo — leave 1-2 reps in the tank on everything.'};
 
+// ── UPPER A / B v2 (from 28 Sep) — replaces Lower Body A, exercises folded into Upper B ──
+const UPPER_A={name:'Upper A',icon:'💪',type:'gym',meta:'Push + core · ~55 min',color:'#4f8ef7',colorDim:'#1a2d52',
+warmup:'Band pull-aparts 2×15 · Arm circles 30s · Band external rotation 2×15 ea',
+exercises:[
+  {name:'Incline dumbbell press',sets:'4',reps:'6-10',rest:'2-3 min',note:'Lead lift. Straight sets, 1-2 reps in reserve.',tag:''},
+  {name:'Standing DB overhead press',sets:'3',reps:'8-10',rest:'2 min',note:'Moved up: overhead strength carries straight into 100 wall balls. Core braced, no lower-back arch.',tag:''},
+  {name:'Machine chest press',sets:'3',reps:'8-12',rest:'90s',note:'Volume cut from 4-5 sets and drop set removed.',tag:''},
+  {name:'ISO-lateral low row',sets:'3',reps:'10',rest:'90s',note:'Balances push and pull.',tag:''},
+  {name:'Face pull',sets:'3',reps:'15',rest:'60s',note:'External rotation at the end. Shoulder health.',tag:'back'},
+  {name:'Triceps rope pushdown',sets:'3',reps:'10-12',rest:'60s',note:'Straight sets instead of pyramid.',tag:''},
+  {name:'Pallof press + Standing calf raise (superset)',sets:'3',reps:'12 ea + 12',rest:'60s',note:'Pallof = anti-rotation core for sleds and carries. Calf raises = calf/Achilles resilience for 3 runs a week plus burpee broad jumps.',tag:'back'},
+],sessionNote:'No pyramids or drop sets. Going to failure adds fatigue you need for Hyrox and runs. When you hit the top of the rep range on all sets, add weight.'};
+
+const UPPER_A_LIGHT={name:'Upper A — light week',icon:'💪',type:'gym',meta:'Push + core · light week · ~45 min',color:'#4f8ef7',colorDim:'#1a2d52',
+warmup:'Band pull-aparts 2×15 · Arm circles 30s · Band external rotation 2×15 ea',
+exercises:[
+  {name:'Incline dumbbell press',sets:'3',reps:'6-10',rest:'2-3 min',note:'Same weights, one fewer set.',tag:''},
+  {name:'Standing DB overhead press',sets:'2',reps:'8-10',rest:'2 min',note:'Same weights, one fewer set.',tag:''},
+  {name:'Machine chest press',sets:'2',reps:'8-12',rest:'90s',note:'Same weights, one fewer set.',tag:''},
+  {name:'ISO-lateral low row',sets:'2',reps:'10',rest:'90s',note:'Same weights, one fewer set.',tag:''},
+  {name:'Face pull',sets:'2',reps:'15',rest:'60s',note:'Same weights, one fewer set.',tag:'back'},
+  {name:'Triceps rope pushdown',sets:'2',reps:'10-12',rest:'60s',note:'Same weights, one fewer set.',tag:''},
+  {name:'Pallof press + Standing calf raise (superset)',sets:'2',reps:'12 ea + 12',rest:'60s',note:'Same weights, one fewer set.',tag:'back'},
+],sessionNote:'Lighter week — one set down on every exercise, same weights. Recover into the retest / simulation / taper ahead.'};
+
+const UPPER_A_RACE_LIGHT={name:'Upper A — light',icon:'💪',type:'gym',meta:'Race week · 2 sets · technique only',color:'#4f8ef7',colorDim:'#1a2d52',
+warmup:'Band pull-aparts 2×15 · Arm circles 30s · Band external rotation 2×15 ea',
+exercises:[
+  {name:'Incline dumbbell press',sets:'2',reps:'8-10',rest:'2 min',note:'Easy weight — priming, not fatiguing.',tag:''},
+  {name:'Standing DB overhead press',sets:'2',reps:'8-10',rest:'90s',note:'Easy weight.',tag:''},
+  {name:'Machine chest press',sets:'2',reps:'10',rest:'60s',note:'Easy weight.',tag:''},
+  {name:'ISO-lateral low row',sets:'2',reps:'10',rest:'60s',note:'Easy weight.',tag:''},
+  {name:'Face pull',sets:'2',reps:'15',rest:'45s',note:'Shoulder health.',tag:'back'},
+  {name:'Pallof press',sets:'2',reps:'12 ea',rest:'45s',note:'Core activation only.',tag:'back'},
+],sessionNote:'Race week. Easy weights, technique only — stay loose, don\'t create fatigue three days out.'};
+
+const UPPER_B={name:'Upper B',icon:'🏋️',type:'gym',meta:'Pull + posterior chain + grip · ~60 min',color:'#4f8ef7',colorDim:'#1a2d52',
+warmup:'Cat-cow 10 · Thoracic rotations 10 ea · Dead hangs 2×20s · Banded lateral walks 2×15 ea · Glute bridges 2×15',
+exercises:[
+  {name:'Assisted pull-ups',sets:'4',reps:'5-8',rest:'2-3 min',note:'Reduce assistance when 4×8 feels easy.',tag:''},
+  {name:'T-bar row machine',sets:'4',reps:'8',rest:'2 min',note:'Chest on pad, 1s squeeze.',tag:''},
+  {name:'Hip thrust',sets:'3',reps:'10',rest:'90s',note:'From Lower A. Glute strength protects the lower back on sleds and lunges. Regress to glute bridge if the back takes over.',tag:'hip'},
+  {name:'Seated leg curl',sets:'3',reps:'10-12',rest:'90s',note:'From Lower A. Hamstrings without loading the back or tiring legs before Thursday\'s tempo.',tag:''},
+  {name:'Single-arm cable lateral raise',sets:'3',reps:'12 ea',rest:'60s',note:'',tag:''},
+  {name:'Heavy farmers carry',sets:'3',reps:'40 m',rest:'90s',note:'New. Race station — grip, traps and core in one.',tag:''},
+  {name:'Hammer curl + Side plank (superset)',sets:'3',reps:'10 + 45s ea',rest:'60s',note:'Arm finisher paired with anti-rotation core.',tag:'back'},
+  {name:'Hanging knee raise',sets:'3',reps:'10-12',rest:'60s',note:'Replaces cable crunch — same ab work plus grip, without loaded spinal flexion.',tag:''},
+],sessionNote:'Two days before Sunday\'s big Hyrox session. Hip thrust and leg curl keep the glutes and hamstrings firing without heavy leg loading.'};
+
+const UPPER_B_LIGHT={name:'Upper B — light week',icon:'🏋️',type:'gym',meta:'Pull + posterior chain + grip · light week · ~50 min',color:'#4f8ef7',colorDim:'#1a2d52',
+warmup:'Cat-cow 10 · Thoracic rotations 10 ea · Dead hangs 2×20s · Banded lateral walks 2×15 ea · Glute bridges 2×15',
+exercises:[
+  {name:'Assisted pull-ups',sets:'3',reps:'5-8',rest:'2-3 min',note:'Same weights, one fewer set.',tag:''},
+  {name:'T-bar row machine',sets:'3',reps:'8',rest:'2 min',note:'Same weights, one fewer set.',tag:''},
+  {name:'Hip thrust',sets:'2',reps:'10',rest:'90s',note:'Same weights, one fewer set.',tag:'hip'},
+  {name:'Seated leg curl',sets:'2',reps:'10-12',rest:'90s',note:'Same weights, one fewer set.',tag:''},
+  {name:'Single-arm cable lateral raise',sets:'2',reps:'12 ea',rest:'60s',note:'Same weights, one fewer set.',tag:''},
+  {name:'Heavy farmers carry',sets:'2',reps:'40 m',rest:'90s',note:'Same weights, one fewer set.',tag:''},
+  {name:'Hammer curl + Side plank (superset)',sets:'2',reps:'10 + 45s ea',rest:'60s',note:'Same weights, one fewer set.',tag:'back'},
+  {name:'Hanging knee raise',sets:'2',reps:'10-12',rest:'60s',note:'Same weights, one fewer set.',tag:''},
+],sessionNote:'Lighter week — one set down on every exercise, same weights.'};
+
+// ── SWAP OPTION — every Tuesday/Sunday Hyrox card carries this ────────────────
+const SWAP_TEXT='Legs wrecked? Swap for a zero-impact session: Cardio Machine Lactate Endurance (SkiErg 1 km + Row 1 km at threshold, Bike 2 km zone 2, 40 min AMRAP) or RowErg Threshold Intervals (5 min warm-up, 6 × 500 m @ 2:00/500 m, 1 min rest).';
+function withSwap(s){if(s.keyRule){s.keyRule=s.keyRule+' '+SWAP_TEXT;}else if(s.note){s.note=s.note+' '+SWAP_TEXT;}else{s.keyRule=SWAP_TEXT;}return s;}
+
+// ── RUN CLUB WRAPPERS — same tempoRun()/easyRun() card design, relabelled + Saturday note ──
+function tempoClub(sets,mins){const t=tempoRun(sets,mins);t.name='Tempo – run club';return t;}
+function easyClub(km){const e=easyRun(km);e.name='Easy run – run club';e.keyRule='If the group goes longer at easy pace, go with it — this is your only extra running volume.';return e;}
+const RACE_WEEK_EASY=(function(){const e=easyRun(2.4);e.name='Easy run – run club';e.meta='Zone 2 · 20 min + strides';e.duration='~20 min + strides';e.steps=e.steps.concat(['Finish with 4×20s relaxed strides, full recovery between each — quick turnover, not speed.']);e.keyRule='Short and easy — priming for race day, not building fitness now.';return e;})();
+
 // ── HYROX LIBRARY REFERENCE (from your Amazfit Training Library — exact block lives in-app) ──
 function hyroxLibrary(name,duration,level,category,note){
   return{name,icon:'🔥',type:'hyrox-lib',meta:`${level} · ${duration} · ${category}`,color:'#fb7185',colorDim:'#3b0f1f',source:'Amazfit Training Library',note};
@@ -311,6 +382,75 @@ items:[
   {name:'Running',amount:'1.00 km'},{name:'Rowing',amount:'1.00 km'},{name:'Running',amount:'1.00 km'},{name:'Farmers Carry',amount:'200 m'},
   {name:'Running',amount:'1.00 km'},{name:'Sandbag Lunges',amount:'100 m'},{name:'Running',amount:'1.00 km'},{name:'Wall Balls',amount:'100 reps'},
 ],keyRule:'This is your one true dress rehearsal — race pace, race nutrition, race shoes. Use it ~3+ weeks out, not closer, so you can recover and taper properly.'};
+withSwap(FULL_COURSE_SIM);
+
+// ── HYROX ROTATION (28 Sep onward) — Tuesday + Sunday sessions ────────────────
+const HC_INITIAL_PHASE=withSwap({name:'Initial Phase Pace Controller',icon:'🔥',type:'hyrox',meta:'Hybrid · Beginner · 45:00',color:'#fb7185',colorDim:'#3b0f1f',source:'Amazfit Training Library',
+desc:'Pacing the opening half of a race — protect aerobic energy, don\'t start fast.',
+timeLimit:'00:45:00',
+items:[{name:'Running',amount:'1 km'},{name:'SkiErg',amount:'800 m'},{name:'Running',amount:'1 km'},{name:'Sled Push',amount:'60 m'},{name:'Running',amount:'1 km'},{name:'Sled Pull',amount:'60 m'}],
+keyRule:'One round, controlled effort.'});
+
+const HC_STEADY_FLOW=withSwap({name:'Steady Flow Interval EMOM',icon:'🔥',type:'hyrox',meta:'Cardio · Beginner · EMOM 40:00',color:'#fb7185',colorDim:'#3b0f1f',source:'Amazfit Training Library',
+desc:'EMOM 40:00 — rotate one item per minute, in order, on repeat.',
+items:[{name:'Rowing',amount:'150 m'},{name:'DB Goblet Squat',amount:'12 reps'},{name:'SkiErg',amount:'150 m'},{name:'Wall Balls',amount:'12 reps'},{name:'Rest',amount:'1 min'}],
+keyRule:'Every minute on the minute for 40 minutes — one station per minute, then rest.'});
+
+const HC_ENDURANCE_LOOP=withSwap({name:'Endurance Repeatability Loop',icon:'🔥',type:'hyrox',meta:'Hybrid · Intermediate · For time',color:'#fb7185',colorDim:'#3b0f1f',source:'Amazfit Training Library',
+desc:'4 rounds. Keep every round\'s split the same.',
+items:[{name:'Running',amount:'500 m'},{name:'SkiErg',amount:'400 m'},{name:'Rest',amount:'1:30'}],
+keyRule:'Log each round\'s split — consistency is the whole point of this session.'});
+
+const HC_ENDURANCE_LOOP_EASY=withSwap({name:'Endurance Repeatability Loop',icon:'🔥',type:'hyrox',meta:'Hybrid · Intermediate · For time · easy effort',color:'#fb7185',colorDim:'#3b0f1f',source:'Amazfit Training Library',
+desc:'4 rounds, easy effort — dial back the pace. This is recovery-week priming heading into the full simulation.',
+items:[{name:'Running',amount:'500 m'},{name:'SkiErg',amount:'400 m'},{name:'Rest',amount:'1:30'}],
+keyRule:'Easy effort only — save the legs for Sunday\'s full course simulation.'});
+
+const HC_COMPROMISED_PACE=withSwap({name:'Compromised Pace Engine Intervals',icon:'🔥',type:'hyrox',meta:'Hybrid · Advanced · For time',color:'#fb7185',colorDim:'#3b0f1f',source:'Amazfit Training Library',
+desc:'6 rounds. Running intervals right after short bursts of load — holding pace when your legs are compromised.',
+items:[{name:'Running',amount:'500 m'},{name:'Sled Push',amount:'40 m'},{name:'Rest',amount:'1:30'}],
+keyRule:'Focus on holding your running pace even as the sled work accumulates fatigue.'});
+
+const HC_SKIERG_ROW_THRESHOLD=withSwap({name:'SkiErg & RowErg Dual Threshold',icon:'🔥',type:'hyrox',meta:'Lactate threshold · Advanced · AMRAP 20:00',color:'#fb7185',colorDim:'#3b0f1f',source:'Amazfit Training Library',
+desc:'Zero-impact engine work — legs recover in the lighter week.',
+items:[{name:'SkiErg',amount:'500 m @ RPE 8'},{name:'Rowing',amount:'500 m @ RPE 8'}],
+keyRule:'AMRAP 20:00 — as many rounds as possible, holding RPE 8 on both machines.'});
+
+const HC_ENGINE_DRAIN=withSwap({name:'60-Minute Engine Drain 500m AMRAP',icon:'🔥',type:'hyrox',meta:'Hybrid · Advanced · AMRAP 60:00',color:'#fb7185',colorDim:'#3b0f1f',source:'Amazfit Training Library',
+desc:'Pace the first 20 minutes conservatively.',
+items:[{name:'Running',amount:'500 m'},{name:'Sled Push',amount:'25 m'},{name:'SkiErg',amount:'400 m'},{name:'Burpee Broad Jumps',amount:'25 m'},{name:'Rowing',amount:'300 m'},{name:'Wall Balls',amount:'25 reps'}],
+keyRule:'AMRAP 60:00 — as many rounds as possible. Don\'t blow the pacing in the first 20 minutes.'});
+
+const HC_MID_RACE_CRUISE=withSwap({name:'Mid-Race Tactical Cruise AMRAP',icon:'🔥',type:'hyrox',meta:'Hybrid · Intermediate · AMRAP 45:00',color:'#fb7185',colorDim:'#3b0f1f',source:'Amazfit Training Library',
+desc:'Steady breathing through the heavy middle of the race.',
+items:[{name:'Running',amount:'800 m'},{name:'Sled Push',amount:'40 m'},{name:'Running',amount:'800 m'},{name:'Sled Pull',amount:'40 m'},{name:'Running',amount:'800 m'},{name:'Burpee Broad Jumps',amount:'60 m'},{name:'Running',amount:'800 m'},{name:'Rowing',amount:'800 m'}],
+keyRule:'AMRAP 45:00 — steady, sustainable pace throughout, not a sprint.'});
+
+const HC_VO2_MAX_CIRCUIT=withSwap({name:'Ergometer VO2 Max Extreme Circuit',icon:'🔥',type:'hyrox',meta:'VO2max · Advanced · For time',color:'#fb7185',colorDim:'#3b0f1f',source:'Amazfit Training Library',
+desc:'Zero impact — keeps the engine sharp while the legs recover from the full simulation.',
+timeLimit:'00:45:00',
+items:[{name:'SkiErg',amount:'4 min @ RPE 5'},{name:'SkiErg',amount:'1 min @ RPE 9'},{name:'Assault Bike',amount:'4 min @ RPE 5'},{name:'Assault Bike',amount:'1 min @ RPE 9'},{name:'Rowing',amount:'4 min @ RPE 5'},{name:'Rowing',amount:'1 min @ RPE 9'}],
+keyRule:'3 rounds, zero impact on the legs — pure engine work in recovery week.'});
+
+const HC_STEP_UP_HALF=withSwap({name:'Step-Up Hybrid Half Course',icon:'🔥',type:'hyrox',meta:'Hybrid · Intermediate · For time',color:'#fb7185',colorDim:'#3b0f1f',source:'Amazfit Training Library',
+desc:'Negative-split practice — each run faster than the last. Directly fixes the fast-start habit from Budapest.',
+partial:true,
+items:[{name:'Running',amount:'1 km @ RPE 6'},{name:'SkiErg',amount:'1 km'},{name:'Running',amount:'1 km @ RPE 7'},{name:'Sled Push',amount:'50 m'},{name:'Running',amount:'1 km @ RPE 8'},{name:'Rowing',amount:'1 km'}],
+keyRule:'Each run should be faster than the last — negative splits, not an even pace.'});
+
+const HC_MULTISTATION_TAPER=withSwap({name:'High Intensity Multi-Station Overload',icon:'🔥',type:'hyrox',meta:'Hybrid · Advanced · For time · 25:00',color:'#fb7185',colorDim:'#3b0f1f',source:'Amazfit Training Library',
+desc:'Short and sharp taper session — quality, not fatigue.',
+timeLimit:'00:25:00',partial:true,
+items:[{name:'SkiErg',amount:'600 m'},{name:'Rowing',amount:'600 m'},{name:'Sled Push',amount:'30 m'},{name:'Sled Pull',amount:'30 m'}],
+keyRule:'3 rounds. Sharp and controlled — this is about staying sharp, not adding fatigue before race week.'});
+
+const BENCHMARK_RETEST=(function(){const b=Object.assign({},BENCHMARK_TEST);b.desc='Retest — compare these numbers directly to your September benchmarks. '+BENCHMARK_TEST.desc;b.keyRule=BENCHMARK_TEST.keyRule;return withSwap(b);})();
+
+// ── HALF HYROX SIMULATIONS — exact blocks not in the library file yet, open in app ──
+const HALF_HYROX_1ST_RPE7=hyroxLibrary('Half Hyrox — 1st half','35-45:00','RPE 7','Amazfit Training Library','Controlled effort, RPE 7 — first time through this half, learning pacing and transitions. Half sims are 35–45 min, similar load to a normal hard Hyrox session. '+SWAP_TEXT);
+const HALF_HYROX_2ND_RPE7=hyroxLibrary('Half Hyrox — 2nd half','35-45:00','RPE 7','Amazfit Training Library','Controlled effort, RPE 7 — first time through this half, learning pacing and transitions. Half sims are 35–45 min, similar load to a normal hard Hyrox session. '+SWAP_TEXT);
+const HALF_HYROX_1ST_RACE=hyroxLibrary('Half Hyrox — 1st half','35-45:00','Race effort','Amazfit Training Library','Race effort — second time through, measuring progress. Beat your 5 Oct time. '+SWAP_TEXT);
+const HALF_HYROX_2ND_RACE=hyroxLibrary('Half Hyrox — 2nd half','35-45:00','Race effort','Amazfit Training Library','Race effort — second time through, measuring progress. Beat your 12 Oct time. '+SWAP_TEXT);
 
 const HYROX_RACE_DAY={name:'HYROX RACE DAY!',icon:'🏅',type:'race',meta:'Hyrox · 3 December 2026',color:'#f59e0b',colorDim:'#3b2600',
 steps:['Arrive 60–75 min early. Full dynamic warm-up: leg swings, hip circles, 10 min easy jog, strides.','Run 1 (1km): controlled — do not chase start-line adrenaline. This sets your ceiling for the whole race.','Station pacing: steady effort you could sustain for 8 rounds, not a sprint. Roxzone transitions — walk in, get straight to work.','Sled push/pull: short, controlled steps, low stable back position. This is where fatigue meets your back — stay disciplined.','Wall balls (final station): break into manageable sets early rather than going unbroken and blowing up.','Fuel: gel or carb source around the halfway point if that\'s what you trained with.'],
@@ -326,28 +466,40 @@ const WEEKS=[
 
   // ── HYROX BUILD — 2 Hyrox sessions/week from here on, no long runs ──
   {label:'21–27 Sep',month:'September 2026',phase:'build',startDate:new Date(2026,8,21),days:[LOWER_BODY_A,HYROX_TRAINING,UPPER_BODY_A,tempoRun(3,8),UPPER_BODY_B,easyRun(5),HYROX_LIGHT]},
-  {label:'28 Sep–4 Oct',month:'September 2026',phase:'build',startDate:new Date(2026,8,28),days:[LOWER_BODY_A,HYROX_TRAINING,UPPER_BODY_A,tempoRun(4,8),UPPER_BODY_B,easyRun(5),HYROX_LIGHT]},
-  {label:'5–11 Oct',month:'October 2026',phase:'build',startDate:new Date(2026,9,5),days:[LOWER_BODY_A,HYROX_TRAINING,UPPER_BODY_A,tempoRun(4,10),UPPER_BODY_B,easyRun(5),HYROX_LIGHT]},
-  {label:'12–18 Oct',month:'October 2026',phase:'build',startDate:new Date(2026,9,12),days:[LOWER_BODY_A,HYROX_TRAINING,UPPER_BODY_A,tempoRun(4,10),UPPER_BODY_B,easyRun(5),HYROX_LIGHT]},
-  {label:'19–25 Oct',month:'October 2026',phase:'build',startDate:new Date(2026,9,19),days:[LOWER_BODY_A,HYROX_TRAINING,UPPER_BODY_A,tempoRun(4,12),UPPER_BODY_B,easyRun(5),HYROX_LIGHT]},
-  {label:'26 Oct–1 Nov',month:'October 2026',phase:'build',startDate:new Date(2026,9,26),days:[LOWER_BODY_A,HYROX_TRAINING,UPPER_BODY_A,tempoRun(4,12),UPPER_BODY_B,easyRun(5),HYROX_LIGHT]},
-  {label:'2–8 Nov',month:'November 2026',phase:'build',startDate:new Date(2026,10,2),days:[LOWER_BODY_A,HYROX_TRAINING,UPPER_BODY_A,tempoRun(4,12),UPPER_BODY_B,easyRun(5),HYROX_LIGHT]},
+  {label:'28 Sep–4 Oct',month:'September 2026',phase:'build1',startDate:new Date(2026,8,28),days:[UPPER_A,HC_INITIAL_PHASE,UPPER_B,tempoClub(4,8),REST,easyClub(5),HC_STEADY_FLOW]},
+  {label:'5–11 Oct',month:'October 2026',phase:'build1',startDate:new Date(2026,9,5),days:[UPPER_A,HC_ENDURANCE_LOOP,UPPER_B,tempoClub(4,10),REST,easyClub(6),HALF_HYROX_1ST_RPE7]},
+  {label:'12–18 Oct',month:'October 2026',phase:'build1',startDate:new Date(2026,9,12),days:[UPPER_A,HC_COMPROMISED_PACE,UPPER_B,tempoClub(4,10),REST,easyClub(7),HALF_HYROX_2ND_RPE7]},
 
-  // ── RACE SIMULATION — full dress rehearsal ~3 weeks out ──
-  {label:'9–15 Nov',month:'November 2026',phase:'sim',startDate:new Date(2026,10,9),days:[LOWER_BODY_A,HYROX_TRAINING,UPPER_BODY_A,tempoRun(3,8),UPPER_BODY_B,FULL_COURSE_SIM,REST]},
-  {label:'16–22 Nov',month:'November 2026',phase:'sim',startDate:new Date(2026,10,16),days:[FULL_BODY_LIGHT,easyRun(6),HL_CARDIO_DUAL,REST,REST,FULL_STATIONS_HALF_SIM,REST]},
+  // ── LIGHTER WEEK + RETEST ──
+  {label:'19–25 Oct',month:'October 2026',phase:'lighter',startDate:new Date(2026,9,19),days:[UPPER_A_LIGHT,HC_SKIERG_ROW_THRESHOLD,UPPER_B_LIGHT,tempoClub(3,8),REST,easyClub(5),BENCHMARK_RETEST]},
 
-  // ── TAPER + RACE ──
-  {label:'23–29 Nov',month:'November 2026',phase:'taper',startDate:new Date(2026,10,23),days:[FULL_BODY_LIGHT,easyRun(5),HL_MULTISTATION,REST,REST,easyRun(5),REST]},
-  {label:'30 Nov — RACE',month:'December 2026',phase:'taper',startDate:new Date(2026,10,30),days:[FULL_BODY_LIGHT,easyRun(4),REST,HYROX_RACE_DAY,REST,REST,REST]},
+  {label:'26 Oct–1 Nov',month:'October 2026',phase:'build2',startDate:new Date(2026,9,26),days:[UPPER_A,HC_ENGINE_DRAIN,UPPER_B,tempoClub(4,12),REST,easyClub(8),HALF_HYROX_1ST_RACE]},
+  {label:'2–8 Nov',month:'November 2026',phase:'build2',startDate:new Date(2026,10,2),days:[UPPER_A,HC_MID_RACE_CRUISE,UPPER_B,tempoClub(4,12),REST,easyClub(8),HALF_HYROX_2ND_RACE]},
+
+  // ── FULL SIMULATION WEEK — one true dress rehearsal, Sunday 15 Nov ──
+  {label:'9–15 Nov',month:'November 2026',phase:'simulation',startDate:new Date(2026,10,9),days:[UPPER_A,HC_ENDURANCE_LOOP_EASY,UPPER_B,tempoClub(3,8),REST,easyClub(5),FULL_COURSE_SIM]},
+
+  // ── RECOVERY WEEK — zero-impact engine work, lighter gym ──
+  {label:'16–22 Nov',month:'November 2026',phase:'recovery',startDate:new Date(2026,10,16),days:[UPPER_A_LIGHT,HC_VO2_MAX_CIRCUIT,UPPER_B_LIGHT,tempoClub(3,8),REST,easyClub(6),HC_STEP_UP_HALF]},
+
+  // ── TAPER ──
+  {label:'23–29 Nov',month:'November 2026',phase:'taper',startDate:new Date(2026,10,23),days:[UPPER_A_LIGHT,HC_MULTISTATION_TAPER,UPPER_B_LIGHT,tempoClub(3,6),REST,easyClub(5),REST]},
+
+  // ── RACE WEEK — Hyrox London ExCeL, Thursday 3 December ──
+  {label:'30 Nov–6 Dec',month:'December 2026',phase:'race',startDate:new Date(2026,10,30),days:[UPPER_A_RACE_LIGHT,RACE_WEEK_EASY,REST,HYROX_RACE_DAY,REST,REST,REST]},
 ];
 
 const PHASES=[
   {id:'rec',name:'Recovery — post half marathon',note:'Full rest except one easy shakeout run. Let the half marathon fully absorb before loading anything new.',color:'#3a3a50'},
   {id:'test',name:'Testing week',note:'Baseline benchmarks for pace, stations and strength before we program real loads.',color:'#818cf8'},
   {id:'build',name:'Hyrox build',note:'2 light Hyrox sessions + 3 gym days (Lower A, Upper A, Upper B) + 1 tempo run + 5k club run. No full rest day — watch recovery, especially Sunday-to-Monday.',color:'#fb7185'},
-  {id:'sim',name:'Race simulation',note:'Full and partial race simulations. Dress rehearsal week of 9 Nov, ~3 weeks out.',color:'#f59e0b'},
-  {id:'taper',name:'Taper + race',note:'Volume down, intensity stays sharp. Race day: 3 December 2026.',color:'#f59e0b'},
+  {id:'build1',name:'Hyrox build 1',note:'New weekly structure from 28 Sep: Upper A (Mon) / Hyrox 1 (Tue) / Upper B (Wed) / Tempo — run club (Thu) / Rest (Fri) / Easy run — run club (Sat) / Hyrox 2, the big one (Sun). Priority is race performance, physique maintained through two quality gym sessions — 4 gym days + 2 Hyrox + 2 runs with no rest day was too much load for 8+ weeks. Lower Body A is removed — legs already get heavy work from sleds, sandbag lunges, wall balls, three runs and the simulations; its most useful exercises (hip thrust, seated leg curl) moved into Upper B.',color:'#fb7185'},
+  {id:'lighter',name:'Lighter week + retest',note:'Upper A and B drop one set per exercise, same weights. Sunday: Hyrox Benchmark Testing retest — compare to your September numbers.',color:'#818cf8'},
+  {id:'build2',name:'Hyrox build 2',note:'Same weekly structure. Sunday half-simulations now at race effort — beat your earlier RPE-7 times.',color:'#fb7185'},
+  {id:'simulation',name:'Full simulation week',note:'HYROX Full Course Simulation on Sunday 15 Nov — your one true dress rehearsal. Tuesday stays easy effort so you arrive fresh.',color:'#f59e0b'},
+  {id:'recovery',name:'Recovery week',note:'Zero-impact engine work Tuesday, lighter gym sessions, Step-Up Hybrid Half Course Sunday. Legs recover from the full simulation.',color:'#818cf8'},
+  {id:'taper',name:'Taper',note:'Volume down, intensity stays sharp. Sunday: rest, or an easy swim if you want to move.',color:'#f59e0b'},
+  {id:'race',name:'Race week',note:'Hyrox London ExCeL — race day Thursday 3 December 2026.',color:'#f59e0b'},
 ];
 const DAYS=['Mon','Tue','Wed','Thu','Fri','Sat','Sun'];
 const RACE_DATE=new Date(2026,11,3);
